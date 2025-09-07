@@ -1,5 +1,5 @@
 LogFile: "/usr/local/x-ui/access.log"
-BlockDuration: 1
+BlockDuration: 10
 TorrentTag: "TORRENT"
 BlockMode: "iptables"
 
