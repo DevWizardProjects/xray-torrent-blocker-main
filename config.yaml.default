@@ -1,8 +1,23 @@
-LogFile: "/var/log/remnanode/access.log"
-BlockDuration: 10
+LogFile: "/usr/local/x-ui/access.log"
+BlockDuration: 1
 TorrentTag: "TORRENT"
 BlockMode: "iptables"
+
+# IP addresses to bypass blocking (never blocked)
+BypassIPS:
+- "127.0.0.1"
+- "::1"
+# - "YOUR_PUBLIC_IP/32" # optional
+
+# Storage directory for block data (persistent state)
+StorageDir: "/opt/tblocker"
+
+SendWebhook: true
+WebhookURL: "https://api.telegram.org/bot(tokan)/sendMessage"
+WebhookTemplate: '{"chat_id":"enterID","text":"🚨 Torrent detected!\nUser: %s\nIP: %s\nServer: %s\nAction: %s\nDuration: %s minutes\nTime: %s"}'
+
+
+
 #
 # For additional parameters (webhooks, whitelist, etc.) - check docs: https://github.com/kutovoys/xray-torrent-blocker
 # Для дополнительных параметров (вебхуки, белый список и т.д.) - смотрите документацию: https://github.com/kutovoys/xray-torrent-blocker
-
